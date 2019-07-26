@@ -45,7 +45,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 3.14941, 7.0145 )
+extents = Vector2( 3.14941, 2.26794 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -67,7 +67,7 @@ frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 0, 1 )
+position = Vector2( -0.2146, 5.77975 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]

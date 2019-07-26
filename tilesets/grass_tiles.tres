@@ -3,28 +3,28 @@
 [ext_resource path="res://sprites/tilemaps/Tilemap/tilemap_packed.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 3.86256, 0, 3.72797 )
+points = PoolVector2Array( 0, 0, 16, 0, 16, 4, 0, 4 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 0, 16, 0.36327, 3.86256, 4.26632, 0, 16, 0, 16, 3.72797, 3.45879, 3.72797, 3.32421, 16 )
+points = PoolVector2Array( 0, 16, 0, 4, 4, 0, 16, 0, 16, 4, 3, 4, 3, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 0, 0, 14.7961, 1.57456, 16, 16, 12.7773, 16, 11.9698, 4.13174, 0, 3.45879 )
+points = PoolVector2Array( 0, 0, 15, 2, 16, 16, 13, 16, 13, 4, 0, 4 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 0, 0, 3.32421, 0, 3.18962, 16, 0, 16 )
+points = PoolVector2Array( 0, 0, 3, 0, 3, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0, 0, 3.18962, 0, 3.05503, 9.53367, 4.80467, 11.4179, 16, 11.5525, 16, 16, 2.38209, 14.2443, 0, 10.8796 )
+points = PoolVector2Array( 0, 0, 3, 0, 3, 9, 3, 12, 16, 12, 16, 16, 2, 14, 0, 11 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 0, 12.0908, 16, 12.2254, 16, 16, 0, 16 )
+points = PoolVector2Array( 0, 12, 16, 12, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 12.7773, 0, 16, 0, 16, 16, 12.9119, 16 )
+points = PoolVector2Array( 13, 0, 16, 0, 16, 16, 13, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 12.5081, 0, 15.8728, 0, 14.7961, 12.2254, 12.9119, 14.5134, 0, 16, 0, 11.8217, 10.7585, 11.9563, 12.6427, 9.66827 )
+points = PoolVector2Array( 13, 0, 16, 0, 15, 12, 13, 15, 0, 16, 0, 12, 8, 12, 13, 12 )
 
 [resource]
 0/name = "tilemap_packed.png 0"

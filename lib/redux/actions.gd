@@ -19,9 +19,3 @@ func player_set_state(state):
     'type': types.PLAYER_SET_STATE,
     'state': state
   }
-  
-func player_move(vector):
-  return {
-    'type': types.PLAYER_MOVE,
-    'vector': vector
-  }

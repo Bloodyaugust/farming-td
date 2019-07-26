@@ -13,8 +13,6 @@ func _ready():
   ])
   store.dispatch(actions.game_set_start_time(OS.get_unix_time()))
   store.dispatch(actions.player_set_health(100))
-  store.dispatch(actions.player_move(Vector2(135, 340)))
 
 func _on_store_changed(name, state):
-#  print (store.state())
-  pass
+  print (store.state())

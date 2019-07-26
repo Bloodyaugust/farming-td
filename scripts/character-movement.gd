@@ -11,30 +11,36 @@ var state = 0 # 0 = idle, 1 = moving
 
 
 func _process(delta):
-  var s_state = store.state()
-  var s_position_state = Vector2(s_state['player']['position_x'], s_state['player']['position_y'])
-  
-  state = 0
+  var state_set = false
   
   if Input.is_action_pressed("ui_up"):
     state = 1
     move_direction = "north"
+    state_set = true
   if Input.is_action_pressed("ui_right"):
     state = 1
     move_direction = "east"
+    state_set = true
   if Input.is_action_pressed("ui_down"):
     state = 1
     move_direction = "south"
+    state_set = true
   if Input.is_action_pressed("ui_left"):
     state = 1
     move_direction = "west"
+    state_set = true
+    
+  if state_set == false && state != 0:
+    state = 0
+    state_set = true
     
   if state != 0:
     animator.play("walk-" + move_direction)
   else:
     animator.play("idle")
     
-  store.dispatch(actions.player_set_state(state))
+  if state_set:
+    store.dispatch(actions.player_set_state(state))
 
 func _physics_process(delta):
   if state == 1:
@@ -49,8 +55,6 @@ func _physics_process(delta):
         move_and_collide(Vector2(-1, 0) * WALK_SPEED * delta)
       _:
         continue
-      
-    store.dispatch(actions.player_move(position))
         
 func _ready():
   animator = get_node("AnimatedSprite")
