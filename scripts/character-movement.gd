@@ -3,7 +3,7 @@ extends KinematicBody2D
 onready var actions = get_node('/root/actions')
 onready var store = get_node('/root/store')
 
-const WALK_SPEED = 16 * 3
+const WALK_SPEED: float = 16.0 * 3.0
 
 var animator
 var move_direction = "north" # north, east, south, west
