@@ -9,11 +9,11 @@
 [ext_resource path="res://doodads/spawn_point.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/character-movement.gd" type="Script" id=8]
 [ext_resource path="res://sprites/player/tile_0024.png" type="Texture" id=9]
-[ext_resource path="res://sprites/player/tile_0051.png" type="Texture" id=10]
-[ext_resource path="res://sprites/player/tile_0078.png" type="Texture" id=11]
-[ext_resource path="res://sprites/player/tile_0025.png" type="Texture" id=12]
-[ext_resource path="res://sprites/player/tile_0052.png" type="Texture" id=13]
-[ext_resource path="res://sprites/player/tile_0079.png" type="Texture" id=14]
+[ext_resource path="res://sprites/player/tile_0025.png" type="Texture" id=10]
+[ext_resource path="res://sprites/player/tile_0052.png" type="Texture" id=11]
+[ext_resource path="res://sprites/player/tile_0079.png" type="Texture" id=12]
+[ext_resource path="res://sprites/player/tile_0051.png" type="Texture" id=13]
+[ext_resource path="res://sprites/player/tile_0078.png" type="Texture" id=14]
 [ext_resource path="res://sprites/player/tile_0023.png" type="Texture" id=15]
 [ext_resource path="res://sprites/player/tile_0050.png" type="Texture" id=16]
 [ext_resource path="res://sprites/player/tile_0077.png" type="Texture" id=17]
@@ -51,14 +51,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "walk-south",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "walk-north",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "walk-south",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ) ],
@@ -109,7 +109,6 @@ script = ExtResource( 8 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = SubResource( 2 )
 animation = "walk-west"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
