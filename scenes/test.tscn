@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://lib/redux/main.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tilemaps/Tilemap/tilemap_packed.png" type="Texture" id=2]
@@ -8,22 +8,23 @@
 [ext_resource path="res://doodads/end_point.tscn" type="PackedScene" id=6]
 [ext_resource path="res://doodads/spawn_point.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/character-movement.gd" type="Script" id=8]
-[ext_resource path="res://sprites/player/tile_0024.png" type="Texture" id=9]
-[ext_resource path="res://sprites/player/tile_0025.png" type="Texture" id=10]
-[ext_resource path="res://sprites/player/tile_0052.png" type="Texture" id=11]
-[ext_resource path="res://sprites/player/tile_0079.png" type="Texture" id=12]
-[ext_resource path="res://sprites/player/tile_0023.png" type="Texture" id=13]
-[ext_resource path="res://sprites/player/tile_0050.png" type="Texture" id=14]
-[ext_resource path="res://sprites/player/tile_0077.png" type="Texture" id=15]
-[ext_resource path="res://sprites/player/tile_0051.png" type="Texture" id=16]
-[ext_resource path="res://sprites/player/tile_0078.png" type="Texture" id=17]
-[ext_resource path="res://sprites/player/tile_0026.png" type="Texture" id=18]
-[ext_resource path="res://sprites/player/tile_0053.png" type="Texture" id=19]
-[ext_resource path="res://sprites/player/tile_0080.png" type="Texture" id=20]
-[ext_resource path="res://sprites/tilemaps/particles/PNG/smoke_04.png" type="Texture" id=21]
-[ext_resource path="res://scripts/enable-particles-when-moving.gd" type="Script" id=22]
-[ext_resource path="res://actors/basic_enemy.tscn" type="PackedScene" id=23]
-[ext_resource path="res://behaviors/path_follower.tscn" type="PackedScene" id=24]
+[ext_resource path="res://shaders/chroma.shader" type="Shader" id=9]
+[ext_resource path="res://sprites/player/tile_0024.png" type="Texture" id=10]
+[ext_resource path="res://sprites/player/tile_0023.png" type="Texture" id=11]
+[ext_resource path="res://sprites/player/tile_0050.png" type="Texture" id=12]
+[ext_resource path="res://sprites/player/tile_0077.png" type="Texture" id=13]
+[ext_resource path="res://sprites/player/tile_0025.png" type="Texture" id=14]
+[ext_resource path="res://sprites/player/tile_0052.png" type="Texture" id=15]
+[ext_resource path="res://sprites/player/tile_0079.png" type="Texture" id=16]
+[ext_resource path="res://sprites/player/tile_0026.png" type="Texture" id=17]
+[ext_resource path="res://sprites/player/tile_0053.png" type="Texture" id=18]
+[ext_resource path="res://sprites/player/tile_0080.png" type="Texture" id=19]
+[ext_resource path="res://sprites/player/tile_0051.png" type="Texture" id=20]
+[ext_resource path="res://sprites/player/tile_0078.png" type="Texture" id=21]
+[ext_resource path="res://sprites/tilemaps/particles/PNG/smoke_04.png" type="Texture" id=22]
+[ext_resource path="res://scripts/enable-particles-when-moving.gd" type="Script" id=23]
+[ext_resource path="res://actors/basic_enemy.tscn" type="PackedScene" id=24]
+[ext_resource path="res://behaviors/path_follower.tscn" type="PackedScene" id=25]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap_packed.png 0"
@@ -46,44 +47,51 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 9 )
+shader_param/use_mult = false
+shader_param/key_distance = 0.2
+shader_param/chroma_key = Color( 0.258824, 0.639216, 0.47451, 1 )
+shader_param/color = Color( 0.282353, 0.65098, 0.898039, 1 )
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "walk-north",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "walk-west",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 16 ) ],
 "loop": true,
-"name": "walk-south",
+"name": "walk-north",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "walk-east",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 20 ), ExtResource( 10 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "walk-south",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 3, 2 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.782369, 0.6034 ), 0.200346, 0.200346, 0, 0, Vector2( 1, 0 ), 0.341615, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
 emission_box_extents = Vector3( 4, 1, 1 )
 flag_disable_z = true
@@ -97,7 +105,7 @@ damping = 2.5
 angle = 180.0
 angle_random = 1.0
 scale = 0.25
-scale_curve = SubResource( 5 )
+scale_curve = SubResource( 7 )
 color = Color( 0.619608, 0.454902, 0.12549, 1 )
 
 [node name="Node2D" type="Node2D"]
@@ -132,13 +140,14 @@ z_index = 5
 script = ExtResource( 8 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
-frames = SubResource( 2 )
+material = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "walk-west"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( 3.35276e-007, 6 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 current = true
@@ -156,12 +165,12 @@ amount = 5
 lifetime = 0.55
 randomness = 0.5
 local_coords = false
-process_material = SubResource( 6 )
-texture = ExtResource( 21 )
-script = ExtResource( 22 )
+process_material = SubResource( 8 )
+texture = ExtResource( 22 )
+script = ExtResource( 23 )
 
-[node name="basic_enemy" parent="." instance=ExtResource( 23 )]
+[node name="basic_enemy" parent="." instance=ExtResource( 24 )]
 editor/display_folded = true
 position = Vector2( 39, 225 )
 
-[node name="path_follower" parent="basic_enemy" instance=ExtResource( 24 )]
+[node name="path_follower" parent="basic_enemy" instance=ExtResource( 25 )]
