@@ -28,6 +28,7 @@ z_index = 5
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walk-north"
+frame = 1
 playing = true
 
 [node name="path_follower" parent="." instance=ExtResource( 5 )]

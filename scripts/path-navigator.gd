@@ -5,6 +5,8 @@ onready var spawn: Node2D = $"spawn_point"
 
 onready var path: PoolVector2Array = get_simple_path(spawn.position, end.position, false)
 
+signal path_found
+
 func _ready():
   var global_path: Array = []
   
@@ -12,3 +14,5 @@ func _ready():
     global_path.push_back(to_global(vector))
     
   path = PoolVector2Array(global_path)
+  
+  emit_signal("path_found")
