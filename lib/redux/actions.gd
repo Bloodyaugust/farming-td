@@ -8,6 +8,12 @@ func game_set_start_time(time):
     'time': time
   }
 
+func player_damage(amount):
+  return {
+    'type': types.PLAYER_DAMAGE,
+    'damage': amount
+  }
+  
 func player_set_health(health):
   return {
     'type': types.PLAYER_SET_HEALTH,

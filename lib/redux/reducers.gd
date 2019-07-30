@@ -11,6 +11,10 @@ func game(state, action):
   return state
 
 func player(state, action):
+  if action['type'] == action_types.PLAYER_DAMAGE:
+    var next_state = store.shallow_copy(state)
+    next_state['health'] = next_state['health'] - action['damage']
+    return next_state
   if action['type'] == action_types.PLAYER_SET_HEALTH:
     var next_state = store.shallow_copy(state)
     next_state['health'] = action['health']

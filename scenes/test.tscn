@@ -95,7 +95,6 @@ emission_box_extents = Vector3( 4, 1, 1 )
 flag_disable_z = true
 spread = 20.0
 gravity = Vector3( 0, -40, 0 )
-angular_velocity = 180.0
 angular_velocity_random = 0.2
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
@@ -141,7 +140,6 @@ script = ExtResource( 8 )
 material = SubResource( 2 )
 frames = SubResource( 3 )
 animation = "walk-west"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]

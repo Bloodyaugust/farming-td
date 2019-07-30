@@ -8,6 +8,8 @@ onready var parent: Node2D = get_parent()
 
 onready var path: PoolVector2Array = navigation.path
 
+signal path_complete
+
 var path_index: int = 0
 
 func _ready():
@@ -23,3 +25,5 @@ func _physics_process(delta):
       
       if parent.position.distance_to(current_path_node) <= NEAR:
         path_index += 1
+    else:
+      emit_signal("path_complete")
