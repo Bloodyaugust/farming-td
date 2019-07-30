@@ -8,7 +8,8 @@ void fragment() {
   COLOR = texture(TEXTURE, UV);
   
   if (amount > 0.0) {
-    COLOR = COLOR * (color * (amount + 1.0));
+    vec3 mixed_colors = mix(vec3(1, 1, 1), vec3(color.r, color.g, color.b), amount);
+    COLOR = COLOR * vec4(mixed_colors.r, mixed_colors.g, mixed_colors.b, 1);
   }
 }
 
