@@ -15,4 +15,4 @@ func _ready():
   store.dispatch(actions.player_set_health(100))
 
 func _on_store_changed(name, state):
-  print (store.state())
+  print (state)

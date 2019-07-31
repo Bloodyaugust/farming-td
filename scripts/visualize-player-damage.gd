@@ -9,7 +9,6 @@ var damage_shader_amount: float = 0.0
 
 func _ready():
   actions.connect("player_damaged", self, "on_damage")
-  on_damage()
   
 func _process(delta):
   if damage_shader_amount > 0.0:

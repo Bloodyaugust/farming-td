@@ -9,9 +9,6 @@ onready var animated_sprite = $"../AnimatedSprite"
 
 var damage_shader_amount: float = 0.0
 
-func _ready():
-  damage(1)
-
 func _process(delta):
   if damage_shader_amount > 0.0:
     damage_shader_amount -= delta * damage_effect_degrade_rate
