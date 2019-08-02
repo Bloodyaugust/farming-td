@@ -78,7 +78,9 @@ scale = 0.25
 scale_curve = SubResource( 5 )
 color = Color( 0.619608, 0.454902, 0.12549, 1 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" groups=[
+"player",
+]]
 position = Vector2( 102, 315 )
 z_index = 5
 script = ExtResource( 1 )

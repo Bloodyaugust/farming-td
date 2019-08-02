@@ -10,7 +10,7 @@
 [ext_resource path="res://actors/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://resources/themes/kenney/kenney.tres" type="Theme" id=9]
 [ext_resource path="res://resources/themes/kenney/Spritesheet/UIpackSheet_transparent.png" type="Texture" id=10]
-[ext_resource path="res://scripts/classes/Mercenary.gd" type="Script" id=11]
+[ext_resource path="res://actors/basic_mercenary.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap_packed.png 0"
@@ -286,46 +286,48 @@ margin_bottom = 6.0
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="GameUI/TopHUD/Panel/HBoxContainer"]
-margin_left = 675.0
-margin_right = 676.0
-margin_bottom = 592.0
+margin_left = 635.0
+margin_right = 645.0
+margin_bottom = 14.0
 texture = SubResource( 16 )
 
 [node name="Label" type="Label" parent="GameUI/TopHUD/Panel/HBoxContainer"]
-margin_left = 680.0
-margin_top = 290.0
-margin_right = 696.0
-margin_bottom = 302.0
-text = "x10"
+margin_left = 649.0
+margin_top = 1.0
+margin_right = 671.0
+margin_bottom = 13.0
+text = "x100"
 align = 1
 valign = 1
 script = SubResource( 15 )
 
 [node name="TextureRect2" type="TextureRect" parent="GameUI/TopHUD/Panel/HBoxContainer"]
-margin_left = 700.0
-margin_right = 701.0
-margin_bottom = 592.0
+margin_left = 675.0
+margin_right = 685.0
+margin_bottom = 14.0
 texture = SubResource( 17 )
 
 [node name="Label2" type="Label" parent="GameUI/TopHUD/Panel/HBoxContainer"]
-margin_left = 705.0
-margin_top = 290.0
-margin_right = 705.0
-margin_bottom = 302.0
+margin_left = 689.0
+margin_top = 1.0
+margin_right = 711.0
+margin_bottom = 13.0
+text = "x100"
 script = SubResource( 18 )
 
 [node name="TextureRect3" type="TextureRect" parent="GameUI/TopHUD/Panel/HBoxContainer"]
-margin_left = 709.0
-margin_right = 710.0
-margin_bottom = 592.0
+margin_left = 715.0
+margin_right = 729.0
+margin_bottom = 14.0
 texture = SubResource( 20 )
 
 [node name="Label3" type="Label" parent="GameUI/TopHUD/Panel/HBoxContainer"]
-margin_left = 714.0
-margin_top = 290.0
-margin_right = 714.0
-margin_bottom = 302.0
+margin_left = 733.0
+margin_top = 1.0
+margin_right = 755.0
+margin_bottom = 13.0
+text = "x100"
 script = SubResource( 19 )
 
-[node name="Mercenary" type="Node2D" parent="."]
-script = ExtResource( 11 )
+[node name="basic_mercenary" parent="." instance=ExtResource( 11 )]
+position = Vector2( 72, 374 )

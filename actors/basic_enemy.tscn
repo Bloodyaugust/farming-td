@@ -25,14 +25,15 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 2 )
 
-[node name="basic_enemy" type="KinematicBody2D"]
+[node name="basic_enemy" type="KinematicBody2D" groups=[
+"enemies",
+]]
 z_index = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 1 )
 frames = SubResource( 1 )
 animation = "walk-north"
-frame = 3
 playing = true
 
 [node name="path_follower" parent="." instance=ExtResource( 6 )]
