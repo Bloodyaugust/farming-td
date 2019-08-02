@@ -1,6 +1,12 @@
 extends Node
 
-var _state = {}
+var _state = {
+  "player": {
+    "food": 100,
+    "gold": 100,
+    "health": 100
+   }
+ }
 var _reducers = {}
 
 signal state_changed(name, state)

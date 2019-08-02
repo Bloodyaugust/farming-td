@@ -15,6 +15,14 @@ func player(state, action):
     var next_state = store.shallow_copy(state)
     next_state['health'] = next_state['health'] - action['damage']
     return next_state
+  if action['type'] == action_types.PLAYER_SET_FOOD:
+    var next_state = store.shallow_copy(state)
+    next_state['food'] = action['food']
+    return next_state
+  if action['type'] == action_types.PLAYER_SET_GOLD:
+    var next_state = store.shallow_copy(state)
+    next_state['gold'] = action['gold']
+    return next_state
   if action['type'] == action_types.PLAYER_SET_HEALTH:
     var next_state = store.shallow_copy(state)
     next_state['health'] = action['health']

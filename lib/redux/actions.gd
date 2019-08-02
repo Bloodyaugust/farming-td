@@ -17,6 +17,18 @@ func player_damage(amount):
     'damage': amount
   }
   
+func player_set_food(food):
+  return {
+    'type': types.PLAYER_SET_FOOD,
+    'food': food
+  }
+  
+func player_set_gold(gold):
+  return {
+    'type': types.PLAYER_SET_GOLD,
+    'gold': gold
+  }
+  
 func player_set_health(health):
   return {
     'type': types.PLAYER_SET_HEALTH,
