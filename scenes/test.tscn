@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://lib/redux/main.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tilemaps/Tilemap/tilemap_packed.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://actors/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://resources/themes/kenney/kenney.tres" type="Theme" id=9]
 [ext_resource path="res://resources/themes/kenney/Spritesheet/UIpackSheet_transparent.png" type="Texture" id=10]
-[ext_resource path="res://actors/basic_mercenary.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap_packed.png 0"
@@ -328,6 +327,3 @@ margin_right = 755.0
 margin_bottom = 13.0
 text = "x100"
 script = SubResource( 19 )
-
-[node name="basic_mercenary" parent="." instance=ExtResource( 11 )]
-position = Vector2( 72, 374 )
