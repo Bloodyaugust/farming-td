@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/character-movement.gd" type="Script" id=1]
 [ext_resource path="res://shaders/damage.shader" type="Shader" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://sprites/tilemaps/particles/PNG/smoke_04.png" type="Texture" id=15]
 [ext_resource path="res://scripts/enable-particles-when-moving.gd" type="Script" id=16]
 [ext_resource path="res://behaviors/visualize_player_damage.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/buy-node.gd" type="Script" id=18]
+[ext_resource path="res://actors/basic_mercenary.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -89,7 +91,7 @@ script = ExtResource( 1 )
 material = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "walk-west"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -119,3 +121,7 @@ script = ExtResource( 16 )
 
 [node name="visualize_player_damage" parent="." instance=ExtResource( 17 )]
 damage_effect_degrade_rate = 2.0
+
+[node name="buy_node" type="Node2D" parent="."]
+script = ExtResource( 18 )
+selected_node = ExtResource( 19 )
