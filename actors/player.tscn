@@ -91,7 +91,7 @@ script = ExtResource( 1 )
 material = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "walk-west"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

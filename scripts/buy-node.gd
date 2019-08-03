@@ -15,7 +15,7 @@ func _process(delta):
     
 func buy_node():
   var new_node: Node2D = selected_node.instance()
-  var node_position: Vector2 = player_tilemap.map_to_world(player_tilemap.world_to_map(parent.position))
+  var node_position: Vector2 = player_tilemap.map_to_world(player_tilemap.world_to_map(parent.position)) + (player_tilemap.cell_size / 2)
   var store_state = store.state()
   var node_cost = new_node.get_node("cost")
   
