@@ -157,7 +157,7 @@ shader_param/Darkness = 0.0
 
 [sub_resource type="ProxyTexture" id=13]
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 10 )
 region = Rect2( 363, 327, 10, 10 )
 
@@ -176,11 +176,11 @@ func on_state_changed(name, state):
     text = health_string.format({\"amount\": state[\"health\"]})
 "
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 10 )
 region = Rect2( 309, 327, 10, 10 )
 
-[sub_resource type="GDScript" id=18]
+[sub_resource type="GDScript" id=17]
 script/source = "extends Label
 
 onready var store = $\"/root/store\"
@@ -195,7 +195,7 @@ func on_state_changed(name, state):
     text = health_string.format({\"amount\": state[\"gold\"]})
 "
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 10 )
 region = Rect2( 73, 397, 14, 14 )
 
@@ -288,7 +288,7 @@ alignment = 1
 margin_left = 635.0
 margin_right = 645.0
 margin_bottom = 14.0
-texture = SubResource( 16 )
+texture = SubResource( 14 )
 
 [node name="Label" type="Label" parent="GameUI/TopHUD/Panel/HBoxContainer"]
 margin_left = 649.0
@@ -304,7 +304,7 @@ script = SubResource( 15 )
 margin_left = 675.0
 margin_right = 685.0
 margin_bottom = 14.0
-texture = SubResource( 17 )
+texture = SubResource( 16 )
 
 [node name="Label2" type="Label" parent="GameUI/TopHUD/Panel/HBoxContainer"]
 margin_left = 689.0
@@ -312,13 +312,13 @@ margin_top = 1.0
 margin_right = 711.0
 margin_bottom = 13.0
 text = "x100"
-script = SubResource( 18 )
+script = SubResource( 17 )
 
 [node name="TextureRect3" type="TextureRect" parent="GameUI/TopHUD/Panel/HBoxContainer"]
 margin_left = 715.0
 margin_right = 729.0
 margin_bottom = 14.0
-texture = SubResource( 20 )
+texture = SubResource( 18 )
 
 [node name="Label3" type="Label" parent="GameUI/TopHUD/Panel/HBoxContainer"]
 margin_left = 733.0
