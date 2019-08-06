@@ -1,24 +1,42 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://resources/materials/enemy_damage.tres" type="Material" id=1]
-[ext_resource path="res://sprites/enemies/basic/tile_0105.png" type="Texture" id=2]
-[ext_resource path="res://sprites/enemies/basic/tile_0106.png" type="Texture" id=3]
-[ext_resource path="res://sprites/enemies/basic/tile_0133.png" type="Texture" id=4]
-[ext_resource path="res://sprites/enemies/basic/tile_0160.png" type="Texture" id=5]
-[ext_resource path="res://behaviors/path_follower.tscn" type="PackedScene" id=6]
-[ext_resource path="res://behaviors/hurt_player_on_path_end.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scripts/actor_health.gd" type="Script" id=8]
+[ext_resource path="res://sprites/enemies/basic/tile_0106.png" type="Texture" id=2]
+[ext_resource path="res://sprites/enemies/basic/tile_0133.png" type="Texture" id=3]
+[ext_resource path="res://sprites/enemies/basic/tile_0160.png" type="Texture" id=4]
+[ext_resource path="res://sprites/enemies/basic/tile_0104.png" type="Texture" id=5]
+[ext_resource path="res://sprites/enemies/basic/tile_0131.png" type="Texture" id=6]
+[ext_resource path="res://sprites/enemies/basic/tile_0158.png" type="Texture" id=7]
+[ext_resource path="res://sprites/enemies/basic/tile_0107.png" type="Texture" id=8]
+[ext_resource path="res://sprites/enemies/basic/tile_0134.png" type="Texture" id=9]
+[ext_resource path="res://sprites/enemies/basic/tile_0161.png" type="Texture" id=10]
+[ext_resource path="res://sprites/enemies/basic/tile_0105.png" type="Texture" id=11]
+[ext_resource path="res://sprites/enemies/basic/tile_0132.png" type="Texture" id=12]
+[ext_resource path="res://sprites/enemies/basic/tile_0159.png" type="Texture" id=13]
+[ext_resource path="res://behaviors/path_follower.tscn" type="PackedScene" id=14]
+[ext_resource path="res://behaviors/hurt_player_on_path_end.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scripts/actor_health.gd" type="Script" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk-north",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walk-west",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk-east",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "walk-south",
 "speed": 5.0
 } ]
 
@@ -33,18 +51,19 @@ z_index = 5
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 1 )
 frames = SubResource( 1 )
-animation = "walk-north"
+animation = "walk-west"
+frame = 3
 playing = true
 
-[node name="path_follower" parent="." instance=ExtResource( 6 )]
+[node name="path_follower" parent="." instance=ExtResource( 14 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 6 )
 shape = SubResource( 2 )
 
-[node name="hurt_player_on_path_end" parent="." instance=ExtResource( 7 )]
+[node name="hurt_player_on_path_end" parent="." instance=ExtResource( 15 )]
 
 [node name="actor_health" type="Node" parent="."]
-script = ExtResource( 8 )
+script = ExtResource( 16 )
 health = 10
 damage_effect_degrade_rate = 2.0
