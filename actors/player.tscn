@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scripts/character-movement.gd" type="Script" id=1]
 [ext_resource path="res://shaders/damage.shader" type="Shader" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://behaviors/visualize_player_damage.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/buy-node.gd" type="Script" id=18]
 [ext_resource path="res://actors/basic_mercenary.tscn" type="PackedScene" id=19]
+[ext_resource path="res://sprites/highlight_tile.png" type="Texture" id=20]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -80,6 +81,20 @@ scale = 0.25
 scale_curve = SubResource( 5 )
 color = Color( 0.619608, 0.454902, 0.12549, 1 )
 
+[sub_resource type="GDScript" id=7]
+script/source = "extends Node
+
+onready var highlight = $\"./Sprite\"
+onready var parent = $\"../\"
+onready var level_root = $\"../../\"
+onready var player_tilemap: TileMap = level_root.find_node(\"PlayerBaseLayerTilemap\")
+
+func _process(delta):
+    var node_position: Vector2 = player_tilemap.map_to_world(player_tilemap.world_to_map(parent.position)) + (player_tilemap.cell_size / 2)
+    
+    highlight.position = node_position
+"
+
 [node name="player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -91,7 +106,7 @@ script = ExtResource( 1 )
 material = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "walk-west"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -104,11 +119,10 @@ zoom = Vector2( 0.5, 0.5 )
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
-[node name="Node2D" type="Node2D" parent="."]
-editor/display_folded = true
+[node name="walking_particles_container" type="Node2D" parent="."]
 z_index = -1
 
-[node name="Particles2D" type="Particles2D" parent="Node2D"]
+[node name="Particles2D" type="Particles2D" parent="walking_particles_container"]
 position = Vector2( 0, 7 )
 emitting = false
 amount = 5
@@ -125,3 +139,10 @@ damage_effect_degrade_rate = 2.0
 [node name="buy_node" type="Node2D" parent="."]
 script = ExtResource( 18 )
 selected_node = ExtResource( 19 )
+
+[node name="highlight_current_tile" type="Node" parent="."]
+script = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="highlight_current_tile"]
+position = Vector2( 102, 315 )
+texture = ExtResource( 20 )
