@@ -27,7 +27,7 @@ func _process(delta):
   else:
     find_target()
     
-  if is_instance_valid(target) && attack_cooldown == 0:
+  if attack_cooldown == 0:
     attack_target()
   
 func find_target():
@@ -39,6 +39,6 @@ func find_target():
       break
   
 func attack_target():
-  if is_instance_valid(target):
+  if is_instance_valid(target) && target.get_node("actor_health") != null:
     target.get_node("actor_health").damage(attack_damage)
     attack_cooldown = attack_interval

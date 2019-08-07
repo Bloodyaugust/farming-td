@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://resources/materials/enemy_damage.tres" type="Material" id=1]
 [ext_resource path="res://sprites/enemies/basic/tile_0106.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://behaviors/path_follower.tscn" type="PackedScene" id=14]
 [ext_resource path="res://behaviors/hurt_player_on_path_end.tscn" type="PackedScene" id=15]
 [ext_resource path="res://behaviors/actor_health.tscn" type="PackedScene" id=16]
+[ext_resource path="res://doodads/floating_text.tscn" type="PackedScene" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -50,10 +51,17 @@ onready var actions = $\"/root/actions\"
 onready var store = $\"/root/store\"
 
 export var amount: int
+export var floating_text: PackedScene
 
 func _exit_tree():
   store.dispatch(actions.player_set_gold(store.state()[\"player\"][\"gold\"] + amount))
-"
+  
+  var text = floating_text.instance()
+  
+  text.position = $\"../\".position
+  text.get_node(\"text\").text = \"+\" + str(amount)
+  
+  $\"../../\".add_child(text)"
 
 [node name="basic_enemy" type="KinematicBody2D" groups=[
 "enemies",
@@ -64,6 +72,7 @@ z_index = 5
 material = ExtResource( 1 )
 frames = SubResource( 1 )
 animation = "walk-west"
+frame = 1
 playing = true
 
 [node name="path_follower" parent="." instance=ExtResource( 14 )]
@@ -79,3 +88,4 @@ shape = SubResource( 2 )
 [node name="gold_on_death" type="Node" parent="."]
 script = SubResource( 3 )
 amount = 1
+floating_text = ExtResource( 17 )

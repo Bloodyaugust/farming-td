@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/fonts/kenney_pixel.tres" type="DynamicFont" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+extends Node2D
+
+const FLOAT_SPEED: float = 7.5
+
+export var time_to_live: float
+
+onready var text = get_node(\"text\")
+onready var color: Color = text.get(\"custom_colors/font_color\")
+onready var starting_x: float = position.x
+onready var time_left: float = time_to_live
+
+func _process(delta):
+  time_left -= delta
+  
+  if time_left <= 0:
+    queue_free()
+  else:
+    position = Vector2(starting_x + sin(OS.get_ticks_msec() / 100), position.y - FLOAT_SPEED * delta)
+    color.a = time_left / time_to_live
+    text.set(\"custom_colors/font_color\", color)
+"
+
+[node name="floating_text" type="Node2D"]
+z_index = 10
+script = SubResource( 1 )
+time_to_live = 2.0
+
+[node name="text" type="Label" parent="."]
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 6.99999
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.843137, 0.745098, 0.0941176, 1 )
+text = "+1"
+align = 1
+valign = 1
