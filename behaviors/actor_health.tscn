@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/actor_health.gd" type="Script" id=1]
+
+[node name="actor_health" type="Node"]
+script = ExtResource( 1 )
+health = 10
+damage_effect_degrade_rate = 2.0
