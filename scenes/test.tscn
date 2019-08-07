@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://lib/redux/main.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tilemaps/Tilemap/tilemap_packed.png" type="Texture" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://actors/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://resources/themes/kenney/kenney.tres" type="Theme" id=9]
 [ext_resource path="res://resources/themes/kenney/Spritesheet/UIpackSheet_transparent.png" type="Texture" id=10]
+[ext_resource path="res://sprites/mercenaries/tile_0186.png" type="Texture" id=11]
+[ext_resource path="res://resources/fonts/Fonts/Kenney Pixel Square.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://resources/fonts/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://resources/fonts/Fonts/Kenney Pixel.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap_packed.png 0"
@@ -214,6 +218,28 @@ func on_state_changed(name, state):
     text = health_string.format({\"amount\": state[\"food\"]})
 "
 
+[sub_resource type="GDScript" id=21]
+script/source = "extends Panel
+
+onready var actions = $\"/root/actions\"
+onready var store = $\"/root/store\"
+
+func _ready():
+  store.subscribe(self, \"on_store_changed\")
+
+func on_store_changed(name, state):
+  if name == \"player\":
+    if store.state()[\"tiles\"].get(state[\"tile\"], false):
+      visible = true
+    else:
+      visible = false"
+
+[sub_resource type="DynamicFont" id=20]
+size = 32
+font_data = ExtResource( 14 )
+fallback/0 = ExtResource( 12 )
+fallback/1 = ExtResource( 13 )
+
 [node name="level_1" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -247,6 +273,7 @@ position = Vector2( 23, 17 )
 [node name="GameUI" type="CanvasLayer" parent="."]
 
 [node name="DarknessContainer" type="MarginContainer" parent="GameUI"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -258,6 +285,7 @@ texture = SubResource( 13 )
 expand = true
 
 [node name="TopHUD" type="MarginContainer" parent="GameUI"]
+editor/display_folded = true
 anchor_right = 1.0
 margin_left = 146.0
 margin_right = -144.0
@@ -327,3 +355,62 @@ margin_right = 755.0
 margin_bottom = 13.0
 text = "x100"
 script = SubResource( 19 )
+
+[node name="BottomHUD" type="MarginContainer" parent="GameUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -500.0
+margin_top = -200.0
+margin_right = 500.0
+
+[node name="hovered_actor_details" type="Panel" parent="GameUI/BottomHUD"]
+margin_right = 1000.0
+margin_bottom = 200.0
+theme = ExtResource( 9 )
+script = SubResource( 21 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUI/BottomHUD/hovered_actor_details"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/BottomHUD/hovered_actor_details/HBoxContainer"]
+margin_right = 350.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 350, 0 )
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/BottomHUD/hovered_actor_details/HBoxContainer"]
+margin_left = 354.0
+margin_right = 594.0
+margin_bottom = 160.0
+
+[node name="name" type="Label" parent="GameUI/BottomHUD/hovered_actor_details/HBoxContainer/VBoxContainer"]
+margin_right = 240.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 20 )
+text = "name: basic_mercenary"
+uppercase = true
+
+[node name="cost" type="Label" parent="GameUI/BottomHUD/hovered_actor_details/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 240.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 20 )
+text = "cost: 100"
+uppercase = true
+
+[node name="range" type="Label" parent="GameUI/BottomHUD/hovered_actor_details/HBoxContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 240.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 20 )
+text = "range: 2"
+uppercase = true

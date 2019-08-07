@@ -7,7 +7,8 @@ onready var store = get_node('/root/store')
 func _ready():
   store.create([
     {'name': 'game', 'instance': reducers},
-    {'name': 'player', 'instance': reducers}
+    {'name': 'player', 'instance': reducers},
+    {'name': 'tiles', 'instance': reducers}
   ], [
     {'name': '_on_store_changed', 'instance': self}
   ])
@@ -17,4 +18,4 @@ func _ready():
   store.dispatch(actions.player_set_health(100))
 
 func _on_store_changed(name, state):
-  print (state)
+  print(name, ": ", state)

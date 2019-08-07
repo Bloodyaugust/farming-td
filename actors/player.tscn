@@ -84,15 +84,24 @@ color = Color( 0.619608, 0.454902, 0.12549, 1 )
 [sub_resource type="GDScript" id=7]
 script/source = "extends Node
 
+onready var actions = $\"/root/actions\"
+onready var store = $\"/root/store\"
 onready var highlight = $\"./Sprite\"
 onready var parent = $\"../\"
 onready var level_root = $\"../../\"
 onready var player_tilemap: TileMap = level_root.find_node(\"PlayerBaseLayerTilemap\")
 
+var last_tile: Vector2 = Vector2(0, 0)
+
 func _process(delta):
-    var node_position: Vector2 = player_tilemap.map_to_world(player_tilemap.world_to_map(parent.position)) + (player_tilemap.cell_size / 2)
+    var current_tile: Vector2 = player_tilemap.world_to_map(parent.position)
+    var node_position: Vector2 = player_tilemap.map_to_world(current_tile) + (player_tilemap.cell_size / 2)
     
     highlight.position = node_position
+    
+    if last_tile != current_tile:
+      last_tile = current_tile
+      store.dispatch(actions.player_set_tile(current_tile))
 "
 
 [node name="player" type="KinematicBody2D" groups=[
