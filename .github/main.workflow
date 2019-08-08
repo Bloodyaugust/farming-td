@@ -5,4 +5,5 @@ workflow "Build and Deploy to Itch" {
 
 action "godot.build" {
   uses = "./.github/godot"
+  secrets = ["BUTLER_API_KEY"]
 }
