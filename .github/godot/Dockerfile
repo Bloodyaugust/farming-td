@@ -21,5 +21,5 @@ RUN wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${G
     && mv templates/* ~/.local/share/godot/templates/${GODOT_VERSION}.stable \
     && rm -f Godot_v${GODOT_VERSION}-stable_export_templates.tpz Godot_v${GODOT_VERSION}-stable_linux_server.64.zip
 
-ADD entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /
 ENTRYPOINT [“/entrypoint.sh”]
