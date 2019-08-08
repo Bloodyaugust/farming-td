@@ -16,7 +16,7 @@ RUN wget --quiet https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/defaul
 
 ENV PATH="/butler:${PATH}"
 
-RUN wget --quiet https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_linux_server.64.zip \
+RUN wget --quiet https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_linux_headless.64.zip \
     && wget --quiet https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz \
     && mkdir ~/.cache \
     && mkdir -p ~/.config/godot \
