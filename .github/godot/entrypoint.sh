@@ -7,11 +7,14 @@ which butler
 godot --version
 butler -V
 
+mkdir build/
 mkdir build/win/
 
 godot --export "Windows Desktop" build/win/farming-td.exe
 
 ls -al
+ls -al build/
+ls -al build/win/
 
 butler login
 
