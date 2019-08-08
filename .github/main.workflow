@@ -4,5 +4,5 @@ workflow "Build and Deploy to Itch" {
 }
 
 action "godot.build" {
-  uses = "./github/godot"
+  uses = "./.github/godot"
 }
