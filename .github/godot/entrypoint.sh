@@ -9,7 +9,7 @@ butler -V
 
 godot --export "Windows Desktop" ./build/win/farming-td.exe
 
-godot ls -al ./build/win
+ls -al ./
 
 butler login
 
