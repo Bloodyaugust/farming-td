@@ -10,7 +10,7 @@ butler -V
 mkdir build/
 mkdir build/win/
 
-godot --export "Windows Desktop" build/win/farming-td.zip --quit -v
+godot --export-debug "Windows Desktop" build/win/farming-td.zip --quit -v
 
 ls -al
 ls -al build/
