@@ -23,8 +23,8 @@ func buy_node():
   
   if node_cost.type == "gold":
     if store_state["player"]["gold"] >= node_cost.amount and not store_state["tiles"].has(current_tile):
-      level_root.add_child(new_node)
       new_node.position = node_position
+      level_root.add_child(new_node)
       
       store.dispatch(actions.tiles_set_child(current_tile, new_node))
       store.dispatch(actions.player_set_gold(store_state["player"]["gold"] - node_cost.amount))

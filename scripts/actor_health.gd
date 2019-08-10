@@ -23,6 +23,6 @@ func damage(amount: int):
   
   if health <= 0:
     emit_signal("actor_died")
-    $"../".queue_free()
+    $"../".call_deferred("free")
   else:
     damage_shader_amount = 1.0

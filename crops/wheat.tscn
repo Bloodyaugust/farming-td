@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/crops/wheat.png" type="Texture" id=1]
+[ext_resource path="res://Crop.gd" type="Script" id=2]
+[ext_resource path="res://doodads/floating_text.tscn" type="PackedScene" id=3]
+
+[node name="wheat" type="Sprite"]
+z_index = 1
+texture = ExtResource( 1 )
+hframes = 8
+script = ExtResource( 2 )
+food_yield = 5
+floating_text = ExtResource( 3 )
+floating_text_color = Color( 0, 0.74902, 0.027451, 1 )
+growth_time = 3.0
