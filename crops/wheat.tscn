@@ -7,7 +7,7 @@
 [node name="wheat" type="Sprite"]
 z_index = 1
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 17
 script = ExtResource( 2 )
 food_yield = 5
 floating_text = ExtResource( 3 )

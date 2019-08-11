@@ -472,5 +472,5 @@ uppercase = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="wheat" parent="." instance=ExtResource( 15 )]
-position = Vector2( 86, 360 )
+position = Vector2( 88, 360 )
 floating_text = SubResource( 24 )

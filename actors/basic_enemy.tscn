@@ -126,7 +126,6 @@ z_index = 5
 material = ExtResource( 1 )
 frames = SubResource( 1 )
 animation = "walk-west"
-frame = 1
 playing = true
 
 [node name="path_follower" parent="." instance=ExtResource( 14 )]
