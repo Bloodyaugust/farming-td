@@ -1,0 +1,12 @@
+on: push
+name: Build and Deploy to Itch
+jobs:
+  build:
+    name: godot.build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: godot.build
+      uses: ./.github/godot
+      env:
+        BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
