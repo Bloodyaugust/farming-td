@@ -12,7 +12,7 @@ mkdir build/
 mkdir build/osx/
 mkdir build/win/
 
-godot --export "Mac OSX" build/osx/farming-td.zip -v
+godot --export "Mac OSX" build/osx/farming-td.dmg -v
 godot --export "Windows Desktop" build/win/farming-td.exe -v
 
 ls -al
