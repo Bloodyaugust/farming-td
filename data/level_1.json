@@ -1,0 +1,10 @@
+{
+  "waves": [
+    {
+      "actors": [
+        "basic_enemy": 20
+      ],
+      "timer": 0.5
+    }
+  ]
+}
