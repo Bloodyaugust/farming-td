@@ -2,9 +2,17 @@
   "waves": [
     {
       "actors": [
-        "basic_enemy": 20
-      ],
-      "timer": 0.5
+        {
+          "amount": 20,
+          "timer": 0.5,
+          "type": "basic_enemy",
+        },
+        {
+          "amount": 5,
+          "timer": 0.3,
+          "type": "less_basic_enemy",
+        }
+      ]
     }
   ]
 }
