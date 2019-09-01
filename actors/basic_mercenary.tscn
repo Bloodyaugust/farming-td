@@ -26,9 +26,14 @@ animations = [ {
 ]]
 z_index = 4
 script = ExtResource( 1 )
-attack_damage = 1.0
-attack_interval = 0.5
+agility = 1
+attack_damage = 1
+attack_cooldown_min = 0.25
+attack_cooldown_max = 1.0
 attack_range = 40.0
+experience_thresholds = PoolIntArray( 1, 1, 1, 1 )
+stamina = 1
+strength = 1
 
 [node name="range" type="Sprite" parent="."]
 z_index = -1
@@ -37,7 +42,7 @@ texture = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "attacking"
-frame = 2
+frame = 1
 playing = true
 
 [node name="cost" parent="." instance=ExtResource( 7 )]

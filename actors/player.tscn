@@ -3,17 +3,17 @@
 [ext_resource path="res://scripts/character-movement.gd" type="Script" id=1]
 [ext_resource path="res://shaders/damage.shader" type="Shader" id=2]
 [ext_resource path="res://sprites/player/tile_0024.png" type="Texture" id=3]
-[ext_resource path="res://sprites/player/tile_0025.png" type="Texture" id=4]
-[ext_resource path="res://sprites/player/tile_0052.png" type="Texture" id=5]
-[ext_resource path="res://sprites/player/tile_0079.png" type="Texture" id=6]
-[ext_resource path="res://sprites/player/tile_0023.png" type="Texture" id=7]
-[ext_resource path="res://sprites/player/tile_0050.png" type="Texture" id=8]
-[ext_resource path="res://sprites/player/tile_0077.png" type="Texture" id=9]
-[ext_resource path="res://sprites/player/tile_0026.png" type="Texture" id=10]
-[ext_resource path="res://sprites/player/tile_0053.png" type="Texture" id=11]
-[ext_resource path="res://sprites/player/tile_0080.png" type="Texture" id=12]
-[ext_resource path="res://sprites/player/tile_0051.png" type="Texture" id=13]
-[ext_resource path="res://sprites/player/tile_0078.png" type="Texture" id=14]
+[ext_resource path="res://sprites/player/tile_0026.png" type="Texture" id=4]
+[ext_resource path="res://sprites/player/tile_0053.png" type="Texture" id=5]
+[ext_resource path="res://sprites/player/tile_0080.png" type="Texture" id=6]
+[ext_resource path="res://sprites/player/tile_0025.png" type="Texture" id=7]
+[ext_resource path="res://sprites/player/tile_0052.png" type="Texture" id=8]
+[ext_resource path="res://sprites/player/tile_0079.png" type="Texture" id=9]
+[ext_resource path="res://sprites/player/tile_0051.png" type="Texture" id=10]
+[ext_resource path="res://sprites/player/tile_0078.png" type="Texture" id=11]
+[ext_resource path="res://sprites/player/tile_0023.png" type="Texture" id=12]
+[ext_resource path="res://sprites/player/tile_0050.png" type="Texture" id=13]
+[ext_resource path="res://sprites/player/tile_0077.png" type="Texture" id=14]
 [ext_resource path="res://sprites/tilemaps/particles/PNG/smoke_04.png" type="Texture" id=15]
 [ext_resource path="res://scripts/enable-particles-when-moving.gd" type="Script" id=16]
 [ext_resource path="res://behaviors/visualize_player_damage.tscn" type="PackedScene" id=17]
@@ -36,22 +36,22 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "walk-north",
+"name": "walk-east",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "walk-west",
+"name": "walk-north",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "walk-east",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk-south",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "walk-west",
 "speed": 5.0
 } ]
 
@@ -115,10 +115,10 @@ script = ExtResource( 1 )
 material = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "walk-west"
-playing = true
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.35276e-007, 6 )
+position = Vector2( 3.35276e-07, 6 )
 shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
